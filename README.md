@@ -1,2 +1,3 @@
-# AAFC-TableExtraction
-This the software we developed for Agriculture Agri-food Canada
+# TableExtraction
+This AI-driven table extractor efficiently processes PDF files, expertly handling even the most complex and unstructured tables. It leverages advanced algorithms to extract data and accurately reconstructs it into a clean, well-organized CSV format.
+A detailed explanation of its functionality and technology will be provided soon...
