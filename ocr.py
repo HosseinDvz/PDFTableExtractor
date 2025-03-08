@@ -55,13 +55,10 @@ class Ocr():
     
     
     
-        
-        
-        
 
 if __name__ == "__main__":
     # Test the Ocr class
-    image_path = "/Users/hosseindavarzanisani/AC/Semester_2/AI Project_2/AAFC/Codes/table_images/page_2_T_1.jpg"  # Replace with your image path
+    image_path = "/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/csv_tables/Table_2.csv"  # Replace with your image path
     ocr_instance = Ocr(image_path)  # Create an instance of the Ocr class
     
     # Apply OCR with preprocessing (resize and 300 DPI adjustment)

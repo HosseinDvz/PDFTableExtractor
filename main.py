@@ -10,9 +10,9 @@ import numpy as np
 import os
 
 # reading pdf and converting to image
-PdfToImage(pdf_path='/Users/hosseindavarzanisani/gitrep_pdfTable/AAFC-TableExtraction/pdfs/foods-11-00289.pdf').pdf_to_png()
+PdfToImage(pdf_path='/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/pdfs/foods-11-00289.pdf').pdf_to_png()
 
-dirname, _, pages = list(os.walk('/Users/hosseindavarzanisani/gitrep_pdfTable/AAFC-TableExtraction/page_images'))[0]
+dirname, _, pages = list(os.walk('/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/page_images'))[0]
 pages_with_path = [os.path.join(dirname, page) for page in pages] #  getting list of pdf page images' path
     
 image_processor = ImageProcessor()  # Create the ImageProcessor instance
@@ -20,7 +20,7 @@ image_processor = ImageProcessor()  # Create the ImageProcessor instance
 table_transformer = TableTransformer(image_processor=image_processor)
 cropped_tables = table_transformer.detect_and_crop_tables(pages_with_path) # save the table images in a folder
 
-dirname, _, images = list(os.walk('/Users/hosseindavarzanisani/gitrep_pdfTable/AAFC-TableExtraction/table_images'))[0]
+dirname, _, images = list(os.walk('/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/table_images'))[0]
 #print(images)
 images_with_path = [os.path.join(dirname, image) for image in images] # getting list of images in the table_image forlder
 

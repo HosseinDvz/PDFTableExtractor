@@ -6,7 +6,35 @@ import glob
 
 
 class TableTransformer:
-    
+    """
+    A class for detecting and cropping tables from images using a pre-trained object detection model.
+
+    Attributes:
+        device (str): The device to run the model on ('cpu' or 'cuda').
+        path (str): The directory path to save cropped table images.
+        model: The pre-trained object detection model.
+        id2label (dict): Mapping of model output indices to labels.
+        image_processor: An instance of ImageProcessor for processing images.
+
+    Methods:
+        forward(pixel_values):
+            Performs inference on the given pixel values and returns the model outputs.
+        
+        detect_and_crop_tables(pages, detection_class_thresholds=None):
+            Detects tables in the given list of image pages and saves the cropped tables to the specified directory.
+        
+        _clear_folder(path):
+            Deletes all files in the specified folder.
+        
+        _box_cxcywh_to_xyxy(x):
+            Converts bounding box format from center-width-height to corner coordinates.
+        
+        _rescale_bboxes(out_bbox, size):
+            Rescales bounding boxes to the original image size.
+        
+        _outputs_to_objects(outputs, img_size):
+            Processes model outputs to extract detected objects with labels, scores, and bounding boxes.
+    """
     def __init__(self, image_processor, path='table_images' ,device='cpu'):
         # Initialize the model and device
         self.device = device

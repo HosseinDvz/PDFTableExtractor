@@ -140,7 +140,7 @@ class ImageProcessor:
     def dilation(image, kernel_size=(2,2), iterations=1):
         """
         dilate the black pixels by eroding since we are interested in black areas of image
-        Expands black text in an image using dilation with OpenCV.
+        Expands black text in an image using erosion with OpenCV.
         :param kernel_size: Size of the dilation kernel
         :param iterations: Number of dilation iterations
         :return: Processed OpenCV images (original dilation and resized)
