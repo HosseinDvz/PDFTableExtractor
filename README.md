@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the following command to extract tables from a PDF (sample.pdf is a path to the PDF file, others are folder names to save PDF page images  and table images and final CSV files):
+Run the following command to extract tables from a PDF (sample.pdf is a path to the PDF file, others are folder names to save PDF page images  and table images and final CSV files). You can run either the extract_tables.py or the main.py:
 ```bash
 extract_tables("sample.pdf", "page_images", "table_images", "csv_tables")
 ```
