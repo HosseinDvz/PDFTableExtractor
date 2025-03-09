@@ -5,7 +5,24 @@ import pytesseract
 import pandas as pd
 
 class Ocr():
-    
+    """
+    A class for performing Optical Character Recognition (OCR) on images using Tesseract and EasyOCR.
+
+    Attributes:
+        path_to_image (str): Path to the image file.
+        image (PIL.Image): The image loaded from the specified path.
+        image_processor (ImageProcessor): An instance of the ImageProcessor class for image preprocessing.
+
+    Methods:
+        apply_pytesseract(resize_float=0.6, custom_config=r'--psm 6'):
+            Applies Tesseract OCR to the image after resizing it using ImageProcessor.
+        
+        apply_easyocr(dpi_adjustment=False, expansion=False, dilation=False, resize_float=0.4):
+            Processes the image using ImageProcessor methods and applies EasyOCR to extract text.
+        
+        _init_easy_ocr(image):
+            Initializes EasyOCR and extracts text from the processed image.
+    """
     def __init__(self, path_to_image):
         self.path_to_image = path_to_image
         self.image = Image.open(self.path_to_image)

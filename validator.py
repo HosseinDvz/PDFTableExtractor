@@ -109,11 +109,11 @@ class TableDataValidator:
 # Example usage
 if __name__ == "__main__":
     from csv_creator import DataFrameSaver
-    api_key = "PUT YOUR API KEY HERE"
+    api_key = "AIzaSyA8iicuyP4TkYhovsdTVrvxuqC5dkBLQwI"
     validator = TableDataValidator(api_key)
 
-    image_path = "/Users/hosseindavarzanisani/AC/Semester_2/AI Project_2/AAFC/Codes/table_images/page_2_T_1.jpg"
-    csv_path = "/Users/hosseindavarzanisani/AC/Semester_2/AI Project_2/AAFC/Codes/csv_tables/Table_2.csv"
+    image_path = "/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/table_images/page_6_T_1.jpg"
+    csv_path = "/Users/hosseindavarzanisani/gitrep_pdfTable/TableExtraction/csv_tables/Table_2.csv"
 
     corrected_df = validator.validate_table_data(image_path, csv_path)
     saver = DataFrameSaver(folder_name='validated_tables', clean_folder=False)
