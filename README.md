@@ -11,8 +11,7 @@ This AI-driven table extractor efficiently processes PDF files, expertly handlin
 
 ## Installation & Setup
 ```bash
-git clone https://github.com/yourusername/pdf-table-extraction.git
-cd pdf-table-extraction
+git clone https://github.com/HosseinDvz/pdf-table-extraction.git
 pip install -r requirements.txt
 ```
 
