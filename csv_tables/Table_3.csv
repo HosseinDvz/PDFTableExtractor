@@ -1,16 +1,16 @@
-Food Materials,PDCAAS,Ref
-Vegetables,0.73,[32]
-Fresh and dry fruits,0.64,[32]
-Soy,0.91,[31]
-Wheat,0.42,[31]
-Rice,0.81,[31]
-Chickpeas,0.62,[33]
--,0.44,[33]
-Porphyra columbina (red seaweed),0.327,[29]
-Palmaria palmata (red seaweed),0.69,In this study
-Asparagopsis taxiformis (red seaweed),0.31,In this study
-Alaria esculenta (brown seaweed),0.59,In this study
-Fucus serratus (brown seaweed),0.63,In this study
-Fucus vesiculosus (brown seaweed),0.08,In this study
-Ulva lactuca (green seaweed),0.15,In this study
-Barley,-,-
+sample,Food Materials PDCAAS,-,Ref
+-,Vegetables,0.73,[32]
+Fresh and dry fruits,-,0.64,[32]
+-,Soy,0.91,[31]
+-,Wheat,0.42,[31]
+-,Rice,0.81,[31]
+-,Chickpeas,0.62,[33]
+-,-,0.44,[33]
+Porphyra columbina (red seaweed),-,0.327,[29]
+Palmaria,palmata (red seaweed),0.69,In this study
+Asparagopsis taxiformis (red seaweed),-,0.31,In this study
+Alaria esculenta (brown seaweed),-,0.59,In this study
+Fucus serratus (brown seaweed),-,0.63,In this study
+Fucus vesiculosus (brown seaweed),-,0.08,In this study
+Ulva lactuca (green seaweed),-,0.15,In this study
+-,Barley,-,-

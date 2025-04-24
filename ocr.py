@@ -1,7 +1,6 @@
 from PIL import Image
 from image_processor import ImageProcessor
 import easyocr
-import pytesseract
 import pandas as pd
 
 class Ocr():
@@ -28,12 +27,6 @@ class Ocr():
         self.image = Image.open(self.path_to_image)
         
         self.image_processor = ImageProcessor()
-    
-    def apply_pytesseract(self, resize_float=0.6, custom_config=r'--psm 6'):
-        #custom_config = r'--psm 6 -c preserve_interword_spaces=1'
-        processed_image = ImageProcessor.ocr_resize(self.image,resize_float=resize_float)
-        text = pytesseract.image_to_string(processed_image, config=custom_config)
-        return text
     
     def apply_easyocr(self, dpi_adjustment=False, expansion=False, dilation=False, resize_float=0.4):
         """Process the image using static methods from ImageProcessor class before applying OCR."""

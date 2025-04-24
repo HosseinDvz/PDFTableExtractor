@@ -1,0 +1,7 @@
+.gitignore/
+.qodo
+.venv
+.env
+test.ipynb
+
+
