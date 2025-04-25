@@ -7,6 +7,8 @@ This AI-driven table extractor efficiently processes PDF files, expertly handlin
 - It detects and extracts tables from PDFs using DETR.
 - Uses OCR to extract text and bounding box coordinates.
 - Reconstructs tables with high accuracy.
+- Validates reconstructed tables by Gemini
+- It operates within Gemini’s free tier limits by sending minimal structured data.
 - Outputs structured CSV files for easy data processing.
 
 ## Installation & Setup
@@ -17,20 +19,19 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the following command to extract tables from a PDF:
-```bash
-extract_tables("sample.pdf", "page_images", "table_images", "output")
-```
+Run the main function:
+
 
 ## Examples  
-For examples of extracted tables, check this repository's folder (https://github.com/HosseinDvz/PDFTableExtractor/blob/main/csv_tables/).  
+Check this repository's folder for examples of extracted tables (https://github.com/HosseinDvz/PDFTableExtractor/blob/main/validated_tables/).  
 
 
 ## Technical Details
 This project leverages advanced deep learning and image processing techniques to achieve accurate table extraction:
-- **DEtection TRansformer (DETR)** for detecting table regions.
+- **DEtection TRansformer (DETR)** for detecting table regions. I do not utilize the transformer part of DETR, which detects the structure of tables. 
 - **EasyOCR** for extracting text and coordinates.
-- **Custom Python functions** for table reconstruction.
+- **Custom Python functions** for table reconstruction from the output of OCR. These functions are the replacement of the transformer part of DETR.
+- **Validation** for sending the pair of table images and constructed tables to Gemini for correcting possible OCR errors.
 
 ## Contribution
 Contributions are welcome! Please follow these steps:
