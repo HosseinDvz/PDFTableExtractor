@@ -17,6 +17,8 @@ git clone https://github.com/yourusername/pdf-table-extraction.git
 cd pdf-table-extraction
 pip install -r requirements.txt
 ```
+### Create a .env file in the project root and add your [free Gemini API key](https://ai.google.dev/gemini-api/docs/api-key).:
+GEMINI_API_KEY="YOUR_FREE_GEMINI_API"
 
 ## Usage
 Run the main function:
@@ -26,12 +28,19 @@ Run the main function:
 Check this repository's folder for examples of extracted tables (https://github.com/HosseinDvz/PDFTableExtractor/blob/main/validated_tables/).  
 
 
-## Technical Details
-This project leverages advanced deep learning and image processing techniques to achieve accurate table extraction:
-- **DEtection TRansformer (DETR)** for detecting table regions. I do not utilize the transformer part of DETR, which detects the structure of tables. 
-- **EasyOCR** for extracting text and coordinates.
-- **Custom Python functions** for table reconstruction from the output of OCR. These functions are the replacement of the transformer part of DETR.
-- **Validation** for sending the pair of table images and constructed tables to Gemini for correcting possible OCR errors.
+## Technical Details  
+This project combines deep learning and image processing techniques to extract tables from PDFs with high accuracy:
+
+- **DEtection TRansformer (DETR)** is used to detect the locations of tables within PDF pages.  
+  *Note: The transformer module within DETR, typically used for structure recognition, is not utilized in this project.*
+
+- **EasyOCR** is employed to extract both text content and bounding box coordinates from the detected table regions.
+
+- **Custom Python logic** reconstructs the tables using the OCR output. This logic effectively replaces the structural parsing functionality usually handled by DETR's transformer component. The
+out put of thid step can be find in **csv_tables** folder
+
+- **Validation with Gemini**: Each table image and its reconstructed version are sent to Google's Gemini model to correct potential OCR errors. The validation is optimized to stay within the limits of Gemini’s free tier by sending minimal, structured data.
+
 
 ## Contribution
 Contributions are welcome! Please follow these steps:
