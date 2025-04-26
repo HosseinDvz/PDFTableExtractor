@@ -25,16 +25,16 @@ pages_with_path = [os.path.join(dirname, page) for page in pages] #  getting lis
 image_processor = ImageProcessor()  # Create the ImageProcessor instance
 
 table_transformer = TableTransformer(image_processor=image_processor)
-cropped_tables = table_transformer.detect_and_crop_tables(pages_with_path) # save the table images in a folder
+cropped_tables = table_transformer.detect_and_crop_tables(pages_with_path) # save the table images in table_images folder
 
 dirname, _, images = list(os.walk('table_images'))[0]
 #print(images)
-images_with_path = [os.path.join(dirname, image) for image in images] # getting list of images in the table_image forlder
+images_with_path = [os.path.join(dirname, image) for image in images] # getting list of images in the table_images forlder
 
-saver_1= DataFrameSaver()
+saver_1= DataFrameSaver() # to save reconstructed tables
 
 validator = TableDataValidator(api_key)
-saver_2 = DataFrameSaver(folder_name='validated_tables', clean_folder=True)
+saver_2 = DataFrameSaver(folder_name='validated_tables', clean_folder=True) #to save vali
 
 for i, image in enumerate(images_with_path):
     print(image)
