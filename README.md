@@ -21,7 +21,7 @@ pip install -r requirements.txt
 GEMINI_API_KEY="YOUR_FREE_GEMINI_API"
 
 ## Usage
-Run the main function:
+Run the main.py
 
 
 ## Examples  
