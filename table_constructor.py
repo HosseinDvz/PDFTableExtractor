@@ -7,13 +7,49 @@ warnings.filterwarnings("ignore")
 
 class TableConstruction:
     
+    """
+    A utility class to reconstruct structured tabular data from OCR-extracted text and bounding boxes.
+
+    This class partitions OCR data into rows and columns based on spatial coordinates, cleans numeric values,
+    aligns misaligned cells, and returns a clean DataFrame representing the original table layout.
+
+    Attributes:
+        df (pd.DataFrame): The Input of this process is a dataframe created from the OCR’s output with at 
+        least 'bbox' and 'text' columns. 
+    """
+    
     def __init__(self, df):
+        
+        """
+        Initializes the TableConstruction object and prepares internal representation.
+
+        Args:
+            df (pd.DataFrame): The OCR result containing bounding boxes and text.
+        """
+        
+        
         self.df = df.copy()  # Avoid modifying the original dataframe
         self._row_col_coordinates()
         self.df['text'] = self.df['text'].apply(self._clean_numeric_value)
         
     
     def table_creator(self,row_column='row_pos',row_threshold=15, col_column='col_pos', col_threshold=30):
+        
+        """
+        Constructs a DataFrame representing the detected table by grouping data into rows and columns.
+
+        Args:
+            row_column (str): Name of the column representing row positions. Default is 'row_pos'.
+            row_threshold (int): Vertical pixel threshold to consider values in the same row.
+                i.e. values that belong to the same row have close y coordinates
+            col_column (str): Name of the column representing column positions. Default is 'col_pos'.
+            col_threshold (int): Horizontal pixel threshold to consider values in the same column.
+                i.e. values that belong to the same column have close x coordinates
+
+        Returns:
+            pd.DataFrame: A structured table with cleaned values and aligned headers/rows.
+        """
+        
         partitions = self._partition_dataframe(self.df,column=row_column,row_threshold=row_threshold)
         processed_dfs = self._process_dataframes(partitions,column=col_column, col_threshold=col_threshold)
         
@@ -21,7 +57,7 @@ class TableConstruction:
             
             column_names = list(processed_dfs[0]['text'].values)  # Use the first partition for column names
             if column_names[0] == '-':
-                column_names[0] = 'sample'
+                column_names[0] = 'Sample_Name' 
             column_names = np.array(column_names)
             
             rows = []
@@ -149,8 +185,6 @@ class TableConstruction:
         return processed_dataframes
 
     
-    
-
     
     
     
